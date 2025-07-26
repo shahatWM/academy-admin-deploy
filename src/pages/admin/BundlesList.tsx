@@ -14,6 +14,15 @@ const BundlesList = () => {
       courseCount: 8,
       duration: "24 hours",
       status: "Published",
+      courses: [
+        { id: 1, title: "HTML & CSS Basics", duration: "3 hours" },
+        { id: 2, title: "JavaScript Fundamentals", duration: "4 hours" },
+        { id: 3, title: "React Components", duration: "5 hours" },
+        { id: 4, title: "State Management", duration: "3 hours" },
+        { id: 5, title: "API Integration", duration: "4 hours" },
+        { id: 6, title: "Testing & Deployment", duration: "3 hours" },
+        { id: 7, title: "Performance Optimization", duration: "2 hours" },
+      ],
     },
     {
       id: 2,
@@ -22,6 +31,17 @@ const BundlesList = () => {
       courseCount: 12,
       duration: "36 hours",
       status: "Draft",
+      courses: [
+        { id: 8, title: "Python Basics", duration: "3 hours" },
+        { id: 9, title: "NumPy & Pandas", duration: "4 hours" },
+        { id: 10, title: "Data Visualization", duration: "3 hours" },
+        { id: 11, title: "Machine Learning Intro", duration: "5 hours" },
+        { id: 12, title: "Supervised Learning", duration: "4 hours" },
+        { id: 13, title: "Unsupervised Learning", duration: "3 hours" },
+        { id: 14, title: "Deep Learning", duration: "6 hours" },
+        { id: 15, title: "Model Deployment", duration: "4 hours" },
+        { id: 16, title: "Data Engineering", duration: "4 hours" },
+      ],
     },
     {
       id: 3,
@@ -30,6 +50,14 @@ const BundlesList = () => {
       courseCount: 6,
       duration: "18 hours",
       status: "Published",
+      courses: [
+        { id: 17, title: "React Native Setup", duration: "2 hours" },
+        { id: 18, title: "Navigation & Routing", duration: "3 hours" },
+        { id: 19, title: "UI Components", duration: "4 hours" },
+        { id: 20, title: "State Management", duration: "3 hours" },
+        { id: 21, title: "Native APIs", duration: "3 hours" },
+        { id: 22, title: "App Store Publishing", duration: "3 hours" },
+      ],
     },
   ];
 
@@ -73,6 +101,19 @@ const BundlesList = () => {
             </CardHeader>
             <CardContent>
               <CardDescription className="mb-4">{bundle.description}</CardDescription>
+              
+              <div className="mb-4">
+                <h4 className="text-sm font-medium mb-2">Courses in this bundle:</h4>
+                <div className="space-y-1 max-h-32 overflow-y-auto">
+                  {bundle.courses.map((course) => (
+                    <div key={course.id} className="flex justify-between items-center text-xs p-2 rounded bg-muted/50">
+                      <span className="font-medium">{course.title}</span>
+                      <span className="text-muted-foreground">{course.duration}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
               <div className="flex justify-between items-center text-sm text-muted-foreground">
                 <span>{bundle.courseCount} courses</span>
                 <div className="flex items-center gap-1">
